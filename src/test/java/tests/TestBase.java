@@ -20,13 +20,19 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
-        String selenoidAddress = System.getProperty("selenoid", "selenoid.autotests.cloud/wd/hub");
-        String propertyBrowserSize = System.getProperty("propertyBrowserSize","1980x1024");
-        String defaultUrl = System.getProperty("defaultUrl", "https://demoqa.com/");
+        String selenoidUrlAddress = System.getProperty("selenoidUrlAddress",
+                "selenoid.autotests.cloud/wd/hub");
+        String defaultBrowserSize = System.getProperty("defaultBrowserSize","1920x1080");
+        String defaultUrlAddress = System.getProperty("defaultUrlAddress", "https://demoqa.com/");
+        String defaultBrowser = System.getProperty("defaultBrowser", "chrome");
+        String defaultBrowserVersion = System.getProperty("defaultBrowserVersion", "100");
 
-        Configuration.baseUrl = defaultUrl;
-        Configuration.browserSize = propertyBrowserSize;
-        Configuration.remote = "https://"+ config.login() + ":" + config.password() +"@" + selenoidAddress;
+        Configuration.baseUrl = defaultUrlAddress;
+        Configuration.browserSize = defaultBrowserSize;
+        Configuration.remote = "https://"+ config.login() + ":" + config.password() +"@" + selenoidUrlAddress;
+        Configuration.browser = defaultBrowser;
+        Configuration.browserVersion = defaultBrowserVersion;
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
