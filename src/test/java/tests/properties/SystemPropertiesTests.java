@@ -10,7 +10,7 @@ public class SystemPropertiesTests {
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String version = System.getProperty("version", "101");
         String textOfTheGreeting= System.getProperty("Hello all testers, hello all developers");
-        String yourName = System.getProperty("Aleksey");
+        String yourName = System.getProperty("Alex");
         String selenoidAddress = System.getProperty("selenoid.autotests.cloud/wd/hub");
 
         System.out.println(baseUrl);
