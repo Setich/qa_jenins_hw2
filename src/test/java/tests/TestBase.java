@@ -20,8 +20,7 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
-        String selenoidUrlAddress = System.getProperty("selenoidUrlAddress",
-                "selenoid.autotests.cloud/wd/hub");
+        String selenoidAddress = System.getProperty("selenoidUrlAddress", "selenoid.autotests.cloud/wd/hub");
         String defaultBrowserSize = System.getProperty("defaultBrowserSize","1920x1080");
         String defaultUrlAddress = System.getProperty("defaultUrlAddress", "https://demoqa.com/");
         String defaultBrowser = System.getProperty("defaultBrowser", "chrome");
@@ -29,7 +28,7 @@ public class TestBase {
 
         Configuration.baseUrl = defaultUrlAddress;
         Configuration.browserSize = defaultBrowserSize;
-        Configuration.remote = "https://"+ config.login() + ":" + config.password() +"@" + selenoidUrlAddress;
+        Configuration.remote = "https://"+ config.login() + ":" + config.password() +"@" + selenoidAddress;
         Configuration.browser = defaultBrowser;
         Configuration.browserVersion = defaultBrowserVersion;
 
